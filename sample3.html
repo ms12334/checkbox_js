@@ -1,0 +1,33 @@
+<!doctype html> 
+<html> 
+<head></head> 
+<body> 
+   <form method='post'> 
+      <input type='checkbox' name='chb[]' value='html' />HTML<br> 
+      <input type='checkbox' name='chb[]' value='css' />CSS<br> 
+      <input type='checkbox' name='chb[]' value='javascript' />JavaScript<br> 
+      <input type='checkbox' name='chb[]' value='php' />php<br> 
+      <input type='checkbox' name='chb[]' value='python' />Python<br> 
+      <input type='checkbox' name='chb[]' value='net' />Net<br> 
+      <input type='button' value='Click' id="btntest" /> 
+   </form>
+      <p id="output"></p>
+   <script>
+      function getSelectedChbox(frm){  
+         var selchbox = [];  
+         var inpfields = frm.getElementsByTagName('input');  
+         for(var i=0; i<inpfields.length; i++){ 
+            if(inpfields[i].type =='checkbox' && inpfields[i].checked == true) selchbox.push(inpfields[i].value); 
+         } 
+      return selchbox; 
+      } 
+
+      document.getElementById('btntest').onclick = function(){ 
+         var selchb = getSelectedChbox(this.form); //selchb = array
+         var x = document.getElementById("output");
+         //alert(selchb);
+         x.innerHTML = selchb.join(" and ");
+      }
+   </script>
+</body> 
+</html>
